@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="{{asset('bundles/smauser/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/smauser/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/smauser/css/bootstrap-theme.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/smauser/css/bootstrap-responsive.css')}}">
+        <style>
+        body {
+          padding-top: 50px;
+          position: relative;
+          background-image:url({{asset('bundles/smauser/image/bg.png')}});
+          font-family:"Times New Roman", Times, serif;
+         }
+	      .well1 {
+			   opacity:0.9;
+			   filter:alpha(opacity=40);
+			   background: black ;
+			}
+		.bg{
+			opacity:0.8;
+			background: white ;
+		}
+		.ft{
+			background: #141414;
+			color: white;
+			
+		}
+	      
+	    </style>
+        <script>
+        	$(document).ready(function() {   
+	            var sideslider = $('[data-toggle=collapse-side]');
+	            var sel = sideslider.attr('data-target');
+	            var sel2 = sideslider.attr('data-target-2');
+	            sideslider.click(function(event){
+	                $(sel).toggleClass('in');
+	                $(sel2).toggleClass('out');
+	            });
+	        });
+        </script>
+    </head>
+    
+    <body>
+    		<div class="container-fluid">
+	    		<div class="row">
+                    
+                    <div class="col-md-2 col-md-offset-1">
+                        
+                        <ul class="nav bg">
+                            <li><center><img src="{{asset('bundles/smauser/image/user.gif')}}" class="img-responsive img-circle" alt="Responsive image"></center></li>
+                            <li><center><h4>{{app.user.username}}</h4></center></li>
+                            <li><center><font color="red"></font></center></li>
+                        </ul>
+                        	<br>
+                        <ul class="nav bg">
+                            <li> <a href="{{path('sma_admin_homepage')}}"><center>Beranda</center></a></li>
+                            <li> <a href="{{path('data_guru')}}"><center>Data Guru</center></a></li>
+                            <li> <a href="{{path('data_siswa')}}"><center>Data Siswa</center></a></li>
+                            <li> <a href="{{path('data_admin')}}"><center>Data Admin</center></a></li>
+                            <li> <a href="{{path('data_jurusan')}}"><center>Data Jurusan</center></a></li>
+                            <li> <a href="{{path('fos_user_security_logout')}}"><center>Sign Out</center></a></li>
+                        </ul>
+                        <br>
+                        <ul class="nav bg">
+                            <li> <a href="{{path('admin_profil')}}"><center>Profil</center></a></li>
+                            <li> <a href="#"><center>Ubah Profil</center></a></li>
+                            <li> <a href="#"><center>Ubah Password</center></a></li>
+                        </ul>
+                        <br>
+                    </div>
+                    
+                    <div class="col-md-8 bg">
+                        
+                        {% block content %}{% endblock %}
+                    </div><br>
+                    
+                </div>
+                <br>
+                <div class="row footer ft">
+                    
+                    <div class="col-md-12 col-md-offset-0">
+                        <br>
+                        <center>© 2014 SMA Negeri 1 Air Putih. All rights reserved</center>
+                    </div>
+                    
+                </div>
+	    	</div>
+    	
+    	<script type="text/javascript" src="{{asset('bundles/smauser/js/jquery.min.js')}}"></script>
+    	<script type="text/javascript" src="{{asset('bundles/smauser/js/jquery-2.1.0.js')}}"></script>
+    	<script type="text/javascript" src="{{asset('bundles/smauser/js/bootstrap.js')}}"></script>
+    	<script type="text/javascript" src="{{asset('bundles/smauser/js/bootstrap.min.js')}}"></script>
+    </body>
+</html>

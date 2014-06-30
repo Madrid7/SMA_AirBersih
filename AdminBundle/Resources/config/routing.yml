@@ -1,0 +1,23 @@
+sma_admin_homepage:
+    pattern:  /AdminHome/
+    defaults: { _controller: SMAAdminBundle:Default:AdminHome }
+
+admin_profil:
+    pattern:  /AdminProfil/
+    defaults: { _controller: SMAAdminBundle:Default:AdminProfil }
+
+data_guru:
+    pattern:  /DataGuru/
+    defaults: { _controller: SMAAdminBundle:Default:DataGuru }
+
+data_siswa:
+    pattern:  /DataSiswa/
+    defaults: { _controller: SMAAdminBundle:Default:DataSiswa }
+
+data_admin:
+    pattern:  /DataAdmin/
+    defaults: { _controller: SMAAdminBundle:Default:DataAdmin }
+
+data_jurusan:
+    pattern:  /DataJurusan/
+    defaults: { _controller: SMAAdminBundle:Default:DataJurusan }

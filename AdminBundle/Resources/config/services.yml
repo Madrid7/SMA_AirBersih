@@ -1,0 +1,7 @@
+parameters:
+    sma_admin_userprovider.class: SMA\AdminBundle\Security\Core\User\FOSUBUserProvider
+
+services:
+    sma_admin_userprovider:
+        class: %sma_admin_userprovider.class%
+        arguments: [@fos_user.user_manager, {facebook: facebookId}]

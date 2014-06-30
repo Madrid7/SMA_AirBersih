@@ -1,0 +1,15 @@
+sma_user_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: SMAUserBundle:Default:index }
+
+teacher_home:
+    pattern:  /TeacherHome/
+    defaults: { _controller: SMAUserBundle:Default:TeacherHome }
+
+student_home:
+    pattern:  /StudentHome/
+    defaults: { _controller: SMAUserBundle:Default:StudentHome }
+
+wait_page:
+    pattern:  /Checking/
+    defaults: { _controller: SMAUserBundle:Default:WaitPage }

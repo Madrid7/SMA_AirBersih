@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Wait...</title>
+        {%if is_granted('ROLE_ADMIN') %}
+            <script>
+                window.location = "{{ path('sma_admin_homepage') }}";
+            </script>
+            {% elseif is_granted('ROLE_TEACHER') %}
+                <script>
+                    window.location = "{{ path('teacher_home') }}";
+                </script>
+                {% elseif is_granted('ROLE_STUDENT') %}
+                    <script>
+                        window.location = "{{ path('student_home') }}";
+                    </script>
+                    {% else %}
+                        <script>
+                            window.location = "{{ path('fos_user_security_logout') }}";
+                        </script>
+                        {% endif %}
+    </head>
+    <body>
+           
+    </body>
+</html>
