@@ -6,6 +6,10 @@ teacher_home:
     pattern:  /TeacherHome/
     defaults: { _controller: SMAUserBundle:Default:TeacherHome }
 
+buat_tugas:
+    pattern:  /BuatTugas/
+    defaults: { _controller: SMAUserBundle:Default:BuatTugas }
+
 teacher_profile:
     pattern:  /TeacherProfile/
     defaults: { _controller: SMAUserBundle:Default:TeacherProfile }

@@ -4,12 +4,47 @@ namespace SMA\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use SMA\AdminBundle\Entity\Tugas;
 
 class DefaultController extends Controller
 {
     public function TeacherHomeAction()
     {
         return $this->render('SMAUserBundle:TeacherPage:TeacherHome.html.twig');
+    }
+
+    public function BuatTugasAction(Request $request)
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser()->getUsername();
+        if($request->getMethod()=='POST'){
+            $a = new Tugas();
+            $judul = $request->get('judul');
+            $kelas = $request->get('kelas');
+            $jurusan = $request->get('jurusan');
+            $isi = $request->get('isi');
+            $userguru = $request->get('userguru');
+            $namaguru = $request->get('namaguru');
+            $bidang = $request->get('bidang');
+                                    
+            $a->setUserGuru($userguru);
+            $a->setNamaGuru($namaguru);
+            $a->setTanggal(new \DateTime("now"));
+            $a->setKelas($kelas);
+            $a->setJurusan($jurusan);
+            $a->setJudul($judul);
+            $a->setIsi($isi);
+            $a->setMataPel($bidang);
+            
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($a);
+            $em->flush();
+            return $this->redirect($this->generateUrl('buat_tugas'));
+        }
+            
+        $jurusan = $this->getDoctrine()->getRepository('SMAAdminBundle:Jurusan')->findby(array(),array('jurusan' => 'desc'));
+        $kelas = $this->getDoctrine()->getRepository('SMAAdminBundle:Kelas')->findAll();
+        $tugas = $this->getDoctrine()->getRepository('SMAAdminBundle:Tugas')->findBy(array('userGuru' => $user),array('id'=>'desc' ));
+        return $this->render('SMAUserBundle:TeacherPage:BuatTugas.html.twig', array('kelas' => $kelas, 'jurusan' => $jurusan, 'tugas' => $tugas));
     }
 
     public function TeacherProfileAction()
