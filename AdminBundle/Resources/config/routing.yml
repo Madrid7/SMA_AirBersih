@@ -6,6 +6,10 @@ admin_profil:
     pattern:  /AdminProfil/
     defaults: { _controller: SMAAdminBundle:Default:AdminProfil }
 
+edit_profil:
+    pattern:  /EditProfil/
+    defaults: { _controller: SMAAdminBundle:Default:EditProfil }
+
 data_guru:
     pattern:  /DataGuru/
     defaults: { _controller: SMAAdminBundle:Default:DataGuru }

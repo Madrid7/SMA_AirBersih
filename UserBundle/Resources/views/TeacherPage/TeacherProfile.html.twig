@@ -1,4 +1,4 @@
-{% extends "SMAAdminBundle:AdminPage:AdminTemplate.html.twig" %}
+{% extends "SMAUserBundle:TeacherPage:TeacherTemplate.html.twig" %}
 
 {% block stylesheets %}
 <style>
@@ -15,7 +15,11 @@
     <div class="col-sm-12">
     	<div class="col-xs-12 col-sm-8">
             <h2>{{app.user.nama}}</h2>
+            <p><strong>No Induk: </strong> {{app.user.noInduk}} </p>
             <p><strong>Email: </strong> {{app.user.email}} </p>
+            <p><strong>No. Telp: </strong> {{app.user.noHp}} </p>
+            <p><strong>Alamat: </strong> {{app.user.alamat}} </p>
+            <p><strong>Bidang: </strong> {{app.user.bidang}} </p>
             <p><strong>Profesi: </strong> {{app.user.profesi}} </p>
             
         </div>

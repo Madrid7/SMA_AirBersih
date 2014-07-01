@@ -6,9 +6,25 @@ teacher_home:
     pattern:  /TeacherHome/
     defaults: { _controller: SMAUserBundle:Default:TeacherHome }
 
+teacher_profile:
+    pattern:  /TeacherProfile/
+    defaults: { _controller: SMAUserBundle:Default:TeacherProfile }
+
+tedit_profile:
+    pattern:  /TEditProfile/
+    defaults: { _controller: SMAUserBundle:Default:TEditProfile }
+
 student_home:
     pattern:  /StudentHome/
     defaults: { _controller: SMAUserBundle:Default:StudentHome }
+
+student_profile:
+    pattern:  /StudentProfile/
+    defaults: { _controller: SMAUserBundle:Default:StudentProfile }
+
+sedit_profile:
+    pattern:  /SEditProfile/
+    defaults: { _controller: SMAUserBundle:Default:SEditProfile }
 
 wait_page:
     pattern:  /Checking/

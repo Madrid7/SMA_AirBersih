@@ -21,6 +21,31 @@ class DefaultController extends Controller
         return $this->render('SMAAdminBundle:AdminPage:AdminProfil.html.twig');
     }
 
+    public function EditProfilAction(Request $request)
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if($request->getMethod()=='POST'){
+            
+            $userManager = $this->get('fos_user.user_manager');
+            $nama = $request->get('nama');
+            $email = $request->get('email');
+            $password = $request->get('password');
+                        
+            $user->setNama($nama);
+            $user->setEmail($email);
+            $user->setPlainPassword($password);
+            $userManager->updatePassword($user);
+            
+            $userManager->updateUser($user);
+            
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+            return $this->redirect($this->generateUrl('admin_profil'));
+        }
+
+        return $this->render('SMAAdminBundle:AdminPage:EditProfil.html.twig');
+    }
+
     public function DataGuruAction(Request $request)
     {
         if($request->getMethod()=='POST'){

@@ -71,13 +71,12 @@
                             <br>    
                         <ul class="nav bg">
                             <li> <a href="{{path('admin_profil')}}"><center>Profil</center></a></li>
-                            <li> <a href="#"><center>Ubah Profil</center></a></li>
-                            <li> <a href="#"><center>Ubah Password</center></a></li>
+                            <li> <a href="{{path('edit_profil')}}"><center>Ubah Profil</center></a></li>
                         </ul>
                         <br>
                     </div>
                     
-                    <div class="col-md-8 bg">
+                    <div class="col-md-8 bg pr">
                         
                         {% block content %}{% endblock %}
                     </div><br>
