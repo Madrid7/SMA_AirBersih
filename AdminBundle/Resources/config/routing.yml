@@ -10,14 +10,38 @@ data_guru:
     pattern:  /DataGuru/
     defaults: { _controller: SMAAdminBundle:Default:DataGuru }
 
+delete_guru:
+    pattern:  /DeleteGuru/{id}
+    defaults: { _controller: SMAAdminBundle:Default:DeleteGuru }
+
 data_siswa:
     pattern:  /DataSiswa/
     defaults: { _controller: SMAAdminBundle:Default:DataSiswa }
+
+delete_siswa:
+    pattern:  /DeleteSiswa/{id}
+    defaults: { _controller: SMAAdminBundle:Default:DeleteSiswa }
 
 data_admin:
     pattern:  /DataAdmin/
     defaults: { _controller: SMAAdminBundle:Default:DataAdmin }
 
+delete_admin:
+    pattern:  /DeleteAdmin/{id}
+    defaults: { _controller: SMAAdminBundle:Default:DeleteAdmin }
+
 data_jurusan:
     pattern:  /DataJurusan/
     defaults: { _controller: SMAAdminBundle:Default:DataJurusan }
+
+delete_jurusan:
+    pattern:  /DeleteJurusan/{id}
+    defaults: { _controller: SMAAdminBundle:Default:DeleteJurusan }
+
+data_berita:
+    pattern:  /DataBerita/
+    defaults: { _controller: SMAAdminBundle:Default:DataBerita }
+
+delete_berita:
+    pattern:  /DeleteBerita/{id}
+    defaults: { _controller: SMAAdminBundle:Default:DeleteBerita }

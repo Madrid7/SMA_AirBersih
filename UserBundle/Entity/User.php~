@@ -294,27 +294,4 @@ class User extends BaseUser
     {
         return $this->profesi;
     }
-
-    /**
-     * Set bidang
-     *
-     * @param string $bidang
-     * @return User
-     */
-    public function setBidang($bidang)
-    {
-        $this->bidang = $bidang;
-
-        return $this;
-    }
-
-    /**
-     * Get bidang
-     *
-     * @return string 
-     */
-    public function getBidang()
-    {
-        return $this->bidang;
-    }
 }

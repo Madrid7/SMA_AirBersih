@@ -30,6 +30,7 @@
 		}
 	      
 	    </style>
+        {% block stylesheets %}{% endblock %}
         <script>
         	$(document).ready(function() {   
 	            var sideslider = $('[data-toggle=collapse-side]');
@@ -57,13 +58,17 @@
                         	<br>
                         <ul class="nav bg">
                             <li> <a href="{{path('sma_admin_homepage')}}"><center>Beranda</center></a></li>
+                            <li> <a href="{{path('data_berita')}}"><center>Berita</center></a></li>
+                            <li> <a href="{{path('fos_user_security_logout')}}"><center>Sign Out</center></a></li>
+                        </ul>
+                            <br>
+                        <ul class="nav bg">
                             <li> <a href="{{path('data_guru')}}"><center>Data Guru</center></a></li>
                             <li> <a href="{{path('data_siswa')}}"><center>Data Siswa</center></a></li>
                             <li> <a href="{{path('data_admin')}}"><center>Data Admin</center></a></li>
                             <li> <a href="{{path('data_jurusan')}}"><center>Data Jurusan</center></a></li>
-                            <li> <a href="{{path('fos_user_security_logout')}}"><center>Sign Out</center></a></li>
                         </ul>
-                        <br>
+                            <br>    
                         <ul class="nav bg">
                             <li> <a href="{{path('admin_profil')}}"><center>Profil</center></a></li>
                             <li> <a href="#"><center>Ubah Profil</center></a></li>

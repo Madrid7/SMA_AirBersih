@@ -1,7 +1,8 @@
 {% extends "SMAAdminBundle:AdminPage:AdminTemplate.html.twig" %}
 
 {% block content %}
-DataJurusan
+<legend><center>Data Jurusan</center></legend>
+<br>
 <table class="table table-striped table-condensed">
     <thead>
         <tr>
@@ -11,11 +12,20 @@ DataJurusan
         </tr>
     </thead>   
     <tbody>
+        <form class="form-horizontal" role="form" method="POST" action="{{path('data_jurusan')}}">
         <tr>
-            <td></td>
-            <td></td>
-            <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+            <td>#</td>
+            <td><input type="text" placeholder="Tambah" class="form-control" name="jurusan" required="required"></td>
+            <td><button type="submit" class="btn btn-primary">Save</button></td>
+        </tr>
+        </form>
+        {% for j in jurusan %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{j.jurusan}}</td>
+            <td><p><a href="{{path('delete_jurusan', {'id' : j.Id})}}"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
     	</tr>
+        {% endfor %}
     </tbody>
 </table>
 {% endblock %}
