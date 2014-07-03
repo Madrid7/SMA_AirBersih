@@ -2,6 +2,11 @@
 <html>
     <head>
         <title>Teacher Page</title>
+        {% if is_granted('ROLE_TEACHER') == NULL %}
+            <script>
+                window.location = "{{ path('fos_user_security_logout') }}";
+            </script>
+            {% endif %}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="stylesheet" href="{{asset('bundles/smauser/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{asset('bundles/smauser/css/bootstrap.css')}}">
@@ -59,7 +64,8 @@
                         <ul class="nav bg">
                             <li> <a href="{{path('teacher_home')}}"><center>Beranda</center></a></li>
                             <li> <a href="{{path('buat_tugas')}}"><center>Buat Tugas</center></a></li>
-                            <li> <a href="#"><center>Lihat Jawaban</center></a></li>
+                            <li> <a href="{{path('list_jawaban')}}"><center>Lihat Jawaban</center></a></li>
+                            <li> <a href="{{path('daftar_nilai')}}"><center>Daftar Nilai</center></a></li>
                             <li> <a href="{{path('fos_user_security_logout')}}"><center>Sign Out</center></a></li>
                         </ul>
                             <br>

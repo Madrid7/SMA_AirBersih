@@ -1,0 +1,32 @@
+{% extends "SMAUserBundle:TeacherPage:TeacherTemplate.html.twig" %}
+
+{% block content %}
+<div class="col-md-offset-1">
+	<form method="POST" action="#">
+		<p><center><h3>{{jawaban.judul}}</h3></center></p><br>
+		<span><h4>{{jawaban.tanggal|date('d M Y')}}</h4></span><br>
+		<span>Kelas {{jawaban.kelas}} {{jawaban.jurusan}}</span><br>
+		<span>Oleh : <b>{{jawaban.namaSiswa}}</b></span><br><br>
+		<p><center>Soal</center></p><br>
+		<label>{{jawaban.soal|raw}}</label><br>
+		<hr>
+		<p><center>Jawaban</center></p><br>
+		<label>{{jawaban.jawaban|raw}}</label><br>
+		<hr>
+		Nilai : <input type="number" name="nilai" min="0" max="100">
+		<input type="hidden" name="status" value="checked">
+		<input type="hidden" name="userguru" value="{{app.user.username}}">
+		<input type="hidden" name="namaguru" value="{{app.user.nama}}">
+		<input type="hidden" name="mp" value="{{jawaban.matapelajaran}}">
+		<input type="hidden" name="kelas" value="{{jawaban.kelas}}">
+		<input type="hidden" name="judul" value="{{jawaban.judul}}">
+		<input type="hidden" name="jurusan" value="{{jawaban.jurusan}}">
+		<input type="hidden" name="usersiswa" value="{{jawaban.usersiswa}}">
+		<input type="hidden" name="namasiswa" value="{{jawaban.namasiswa}}">
+		<input type="hidden" name="nis" value="{{jawaban.nis}}">
+		<center><button type="submit" class="btn btn-primary">Save</button></center>
+		<br>
+		<br>
+	</form>
+</div>
+{% endblock %}

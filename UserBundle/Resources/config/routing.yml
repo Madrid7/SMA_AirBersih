@@ -10,6 +10,26 @@ buat_tugas:
     pattern:  /BuatTugas/
     defaults: { _controller: SMAUserBundle:Default:BuatTugas }
 
+delete_tugas:
+    pattern:  /BuatTugas/{id}
+    defaults: { _controller: SMAUserBundle:Default:DeleteTugas }
+
+list_jawaban:
+    pattern:  /ListJawaban/
+    defaults: { _controller: SMAUserBundle:Default:ListJawaban }
+
+daftar_nilai:
+    pattern:  /DaftarNilai/
+    defaults: { _controller: SMAUserBundle:Default:DaftarNilai }
+
+open_jawaban:
+    pattern:  /OpenJawaban/{id}
+    defaults: { _controller: SMAUserBundle:Default:OpenJawaban }
+
+delete_jawaban:
+    pattern:  /DeleteJawaban/{id}
+    defaults: { _controller: SMAUserBundle:Default:DeleteJawaban }
+
 teacher_profile:
     pattern:  /TeacherProfile/
     defaults: { _controller: SMAUserBundle:Default:TeacherProfile }
@@ -21,6 +41,18 @@ tedit_profile:
 student_home:
     pattern:  /StudentHome/
     defaults: { _controller: SMAUserBundle:Default:StudentHome }
+
+list_tugas:
+    pattern:  /ListTugas/
+    defaults: { _controller: SMAUserBundle:Default:ListTugas }
+
+list_nilai:
+    pattern:  /ListNilai/
+    defaults: { _controller: SMAUserBundle:Default:ListNilai }
+
+open_tugas:
+    pattern:  /OpenTugas/{id}
+    defaults: { _controller: SMAUserBundle:Default:OpenTugas }
 
 student_profile:
     pattern:  /StudentProfile/

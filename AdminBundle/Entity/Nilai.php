@@ -5,15 +5,10 @@ namespace SMA\AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Tugas
+ * Nilai
  */
-class Tugas
+class Nilai
 {
-    /**
-     * @var \DateTime
-     */
-    private $tanggal;
-
     /**
      * @var string
      */
@@ -23,6 +18,11 @@ class Tugas
      * @var string
      */
     private $namaGuru;
+
+    /**
+     * @var string
+     */
+    private $mataPelajaran;
 
     /**
      * @var string
@@ -37,17 +37,22 @@ class Tugas
     /**
      * @var string
      */
-    private $judul;
+    private $userSiswa;
 
     /**
      * @var string
      */
-    private $isi;
+    private $nis;
 
     /**
      * @var string
      */
-    private $mataPel;
+    private $namaSiswa;
+
+    /**
+     * @var integer
+     */
+    private $nilai;
 
     /**
      * @var integer
@@ -56,33 +61,10 @@ class Tugas
 
 
     /**
-     * Set tanggal
-     *
-     * @param \DateTime $tanggal
-     * @return Tugas
-     */
-    public function setTanggal($tanggal)
-    {
-        $this->tanggal = $tanggal;
-
-        return $this;
-    }
-
-    /**
-     * Get tanggal
-     *
-     * @return \DateTime 
-     */
-    public function getTanggal()
-    {
-        return $this->tanggal;
-    }
-
-    /**
      * Set userGuru
      *
      * @param string $userGuru
-     * @return Tugas
+     * @return Nilai
      */
     public function setUserGuru($userGuru)
     {
@@ -105,7 +87,7 @@ class Tugas
      * Set namaGuru
      *
      * @param string $namaGuru
-     * @return Tugas
+     * @return Nilai
      */
     public function setNamaGuru($namaGuru)
     {
@@ -125,10 +107,33 @@ class Tugas
     }
 
     /**
+     * Set mataPelajaran
+     *
+     * @param string $mataPelajaran
+     * @return Nilai
+     */
+    public function setMataPelajaran($mataPelajaran)
+    {
+        $this->mataPelajaran = $mataPelajaran;
+
+        return $this;
+    }
+
+    /**
+     * Get mataPelajaran
+     *
+     * @return string 
+     */
+    public function getMataPelajaran()
+    {
+        return $this->mataPelajaran;
+    }
+
+    /**
      * Set kelas
      *
      * @param string $kelas
-     * @return Tugas
+     * @return Nilai
      */
     public function setKelas($kelas)
     {
@@ -151,7 +156,7 @@ class Tugas
      * Set jurusan
      *
      * @param string $jurusan
-     * @return Tugas
+     * @return Nilai
      */
     public function setJurusan($jurusan)
     {
@@ -171,72 +176,95 @@ class Tugas
     }
 
     /**
-     * Set judul
+     * Set userSiswa
      *
-     * @param string $judul
-     * @return Tugas
+     * @param string $userSiswa
+     * @return Nilai
      */
-    public function setJudul($judul)
+    public function setUserSiswa($userSiswa)
     {
-        $this->judul = $judul;
+        $this->userSiswa = $userSiswa;
 
         return $this;
     }
 
     /**
-     * Get judul
+     * Get userSiswa
      *
      * @return string 
      */
-    public function getJudul()
+    public function getUserSiswa()
     {
-        return $this->judul;
+        return $this->userSiswa;
     }
 
     /**
-     * Set isi
+     * Set nis
      *
-     * @param string $isi
-     * @return Tugas
+     * @param string $nis
+     * @return Nilai
      */
-    public function setIsi($isi)
+    public function setNis($nis)
     {
-        $this->isi = $isi;
+        $this->nis = $nis;
 
         return $this;
     }
 
     /**
-     * Get isi
+     * Get nis
      *
      * @return string 
      */
-    public function getIsi()
+    public function getNis()
     {
-        return $this->isi;
+        return $this->nis;
     }
 
     /**
-     * Set mataPel
+     * Set namaSiswa
      *
-     * @param string $mataPel
-     * @return Tugas
+     * @param string $namaSiswa
+     * @return Nilai
      */
-    public function setMataPel($mataPel)
+    public function setNamaSiswa($namaSiswa)
     {
-        $this->mataPel = $mataPel;
+        $this->namaSiswa = $namaSiswa;
 
         return $this;
     }
 
     /**
-     * Get mataPel
+     * Get namaSiswa
      *
      * @return string 
      */
-    public function getMataPel()
+    public function getNamaSiswa()
     {
-        return $this->mataPel;
+        return $this->namaSiswa;
+    }
+
+    /**
+     * Set nilai
+     *
+     * @param integer $nilai
+     * @return Nilai
+     */
+    public function setNilai($nilai)
+    {
+        $this->nilai = $nilai;
+
+        return $this;
+    }
+
+    /**
+     * Get nilai
+     *
+     * @return integer 
+     */
+    public function getNilai()
+    {
+        return $this->nilai;
     }
 
     /**
@@ -251,29 +279,29 @@ class Tugas
     /**
      * @var string
      */
-    private $status;
+    private $judulTugas;
 
 
     /**
-     * Set status
+     * Set judulTugas
      *
-     * @param string $status
-     * @return Tugas
+     * @param string $judulTugas
+     * @return Nilai
      */
-    public function setStatus($status)
+    public function setJudulTugas($judulTugas)
     {
-        $this->status = $status;
+        $this->judulTugas = $judulTugas;
 
         return $this;
     }
 
     /**
-     * Get status
+     * Get judulTugas
      *
      * @return string 
      */
-    public function getStatus()
+    public function getJudulTugas()
     {
-        return $this->status;
+        return $this->judulTugas;
     }
 }

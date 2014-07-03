@@ -2,6 +2,11 @@
 <html>
     <head>
         <title>Admin Page</title>
+        {% if is_granted('ROLE_ADMIN') == NULL %}
+            <script>
+                window.location = "{{ path('fos_user_security_logout') }}";
+            </script>
+            {% endif %}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="stylesheet" href="{{asset('bundles/smauser/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{asset('bundles/smauser/css/bootstrap.css')}}">

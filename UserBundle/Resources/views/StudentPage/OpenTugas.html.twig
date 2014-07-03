@@ -1,0 +1,42 @@
+{% extends "SMAUserBundle:StudentPage:StudentTemplate.html.twig" %}
+
+{%block stylesheets%}
+        <script type="text/javascript" src="{{asset('bundles/smauser/tinymce/tiny_mce.js')}}"></script>
+        <script type="text/javascript">
+            tinyMCE.init({
+            // General options
+            mode : "textareas",
+            theme : "advanced",
+            width : "720",
+            height : "500",
+            });
+        </script>
+{%endblock%}
+
+{% block content %}
+<div class="col-md-offset-1">
+<p><center><h3>{{tugas.judul}}</h3></center></p><br>
+<span><h4>{{tugas.tanggal|date('d M Y')}}</h4></span><br>
+<span>Kelas {{tugas.kelas}} {{tugas.jurusan}}</span><br>
+<span>Oleh : <b>{{tugas.namaGuru}}</b></span><br><br>
+<p><center>Soal</center></p><br>
+<label>{{tugas.isi|raw}}</label><br>
+<hr>
+<form method="POST" action="#">
+	<span><center>Jawaban</center></span><br>
+	<textarea name="jawaban"></textarea><br>
+	</div>
+		<input type="hidden" name="username" value="{{app.user.username}}">
+		<input type="hidden" name="nis" value="{{app.user.noInduk}}">
+		<input type="hidden" name="nama" value="{{app.user.nama}}">
+		<input type="hidden" name="userguru" value="{{tugas.userGuru}}">
+		<input type="hidden" name="namaguru" value="{{tugas.namaGuru}}">
+		<input type="hidden" name="judul" value="{{tugas.judul}}">
+		<input type="hidden" name="soal" value="{{tugas.isi}}">
+		<input type="hidden" name="kelas" value="{{app.user.kelas}}">
+		<input type="hidden" name="jurusan" value="{{app.user.jurusan}}">
+		<input type="hidden" name="mp" value="{{tugas.matapel}}">
+		<input type="hidden" name="status" value="uncheck"><br>
+		<center><button type="submit" class="btn btn-primary">Save</button></center>
+</form>
+{% endblock %}

@@ -2,6 +2,11 @@
 <html>
     <head>
         <title>Student Page</title>
+        {% if is_granted('ROLE_STUDENT') == NULL %}
+            <script>
+                window.location = "{{ path('fos_user_security_logout') }}";
+            </script>
+            {% endif %}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="stylesheet" href="{{asset('bundles/smauser/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{asset('bundles/smauser/css/bootstrap.css')}}">
@@ -58,7 +63,8 @@
                         	<br>
                         <ul class="nav bg">
                             <li> <a href="#"><center>Beranda</center></a></li>
-                            <li> <a href="#"><center>Berita</center></a></li>
+                            <li> <a href="{{path('list_tugas')}}"><center>Daftar Tugas</center></a></li>
+                            <li> <a href="{{path('list_nilai')}}"><center>Nilai</center></a></li>
                             <li> <a href="{{path('fos_user_security_logout')}}"><center>Sign Out</center></a></li>
                         </ul>
                             <br>
