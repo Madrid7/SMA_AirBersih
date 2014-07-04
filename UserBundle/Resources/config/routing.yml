@@ -1,6 +1,22 @@
 sma_user_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: SMAUserBundle:Default:index }
+    pattern:  /
+    defaults: { _controller: SMAUserBundle:Default:indexSekolah }
+
+berita_sekolah:
+    pattern:  /Berita/{id}
+    defaults: { _controller: SMAUserBundle:Default:Berita }
+
+profil_sekolah:
+    pattern:  /ProfilSekolah/
+    defaults: { _controller: SMAUserBundle:Default:ProfilSekolah }
+
+sejarah_sekolah:
+    pattern:  /SejarahSekolah/
+    defaults: { _controller: SMAUserBundle:Default:SejarahSekolah }
+
+visi_misi:
+    pattern:  /VisiMisi/
+    defaults: { _controller: SMAUserBundle:Default:VisiMisi }
 
 teacher_home:
     pattern:  /TeacherHome/

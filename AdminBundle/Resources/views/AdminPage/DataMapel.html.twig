@@ -1,0 +1,31 @@
+{% extends "SMAAdminBundle:AdminPage:AdminTemplate.html.twig" %}
+
+{% block content %}
+<legend><center>Data Mata Pelajaran</center></legend>
+<br>
+<table class="table table-striped table-condensed">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Mata Pelajaran</th>
+            <th>Delete</th>                                         
+        </tr>
+    </thead>   
+    <tbody>
+        <form class="form-horizontal" role="form" method="POST" action="{{path('data_mapel')}}">
+        <tr>
+            <td>#</td>
+            <td><input type="text" placeholder="Tambah" class="form-control" name="mp" required="required"></td>
+            <td><button type="submit" class="btn btn-primary">Save</button></td>
+        </tr>
+        </form>
+        {% for j in mapel %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{j.matapelajaran}}</td>
+            <td><p><a href="{{path('delete_mapel', {'id' : j.Id})}}"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+    	</tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

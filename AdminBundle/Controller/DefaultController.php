@@ -207,6 +207,34 @@ class DefaultController extends Controller
         return $this->redirect($this->generateUrl('data_jurusan'));
     }
 
+    public function DataMapelAction(Request $request)
+    {
+        if($request->getMethod()=='POST'){
+            $a = new Matapelajaran();
+            $mp = $request->get('mp');
+                                    
+            $a->setMataPelajaran($mp);
+            
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($a);
+            $em->flush();
+            return $this->redirect($this->generateUrl('data_mapel'));
+        }
+
+        $mapel = $this->getDoctrine()->getRepository('SMAAdminBundle:Matapelajaran')->findBy(array(),array('mataPelajaran' => 'asc'));
+        return $this->render('SMAAdminBundle:AdminPage:DataMapel.html.twig', array('mapel' => $mapel));
+    }
+
+    public function DeleteMapelAction(Request $request, $id)
+    {
+        $mapel = $this->getDoctrine()->getRepository('SMAAdminBundle:Matapelajaran')->find($id);
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->remove($mapel);
+        $em->flush();
+           
+        return $this->redirect($this->generateUrl('data_mapel'));
+    }
+
     public function DataBeritaAction(Request $request)
     {
         if($request->getMethod()=='POST'){

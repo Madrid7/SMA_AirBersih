@@ -1,0 +1,28 @@
+{% extends "SMAUserBundle:Default:Template.html.twig" %}
+
+{% block stylesheets %}
+<style>
+h4{
+	text-align: center;
+	text-transform: uppercase;
+	}
+h5{
+	text-align: right;
+	text-transform: uppercase;
+	}
+p{
+	text-indent: 50px;
+	text-align:justify;
+	letter-spacing:1px;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="col-md-8 col-md-offset-2" id="pad">
+	<p><h4>{{berita.judul}}</h4></p>
+	<p><h5>{{berita.tanggal|date('d M Y')}}</h5></p>
+	<p><h5>{{berita.penulis}}</h5></p>
+	<p>{{berita.konten|raw}}</p>
+</div>
+{% endblock %}

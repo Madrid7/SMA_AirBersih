@@ -8,9 +8,40 @@ use SMA\AdminBundle\Entity\Tugas;
 use SMA\UserBundle\Entity\User;
 use SMA\AdminBundle\Entity\Jawaban;
 use SMA\AdminBundle\Entity\Nilai;
+use SMA\AdminBundle\Entity\Berita;
 
 class DefaultController extends Controller
 {
+    public function indexSekolahAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('SELECT p FROM SMAAdminBundle:Berita p ORDER BY p.id DESC')
+                ->setMaxResults(3);
+        $berita = $query->getResult();
+        return $this->render('SMAUserBundle:Default:index.html.twig', array('berita' => $berita));
+    }
+
+    public function BeritaAction($id)
+    {
+        $berita = $this->getDoctrine()->getRepository('SMAAdminBundle:Berita')->find($id);
+        return $this->render('SMAUserBundle:Default:Berita.html.twig', array('berita' => $berita));
+    }
+
+    public function ProfilSekolahAction()
+    {
+        return $this->render('SMAUserBundle:Default:ProfilSekolah.html.twig');
+    }
+
+    public function SejarahSekolahAction()
+    {
+        return $this->render('SMAUserBundle:Default:SejarahSekolah.html.twig');
+    }
+
+    public function VisiMisiAction()
+    {
+        return $this->render('SMAUserBundle:Default:VisiMisi.html.twig');
+    }
+
     public function TeacherHomeAction()
     {
         return $this->render('SMAUserBundle:TeacherPage:TeacherHome.html.twig');

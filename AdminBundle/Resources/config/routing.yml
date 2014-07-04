@@ -42,6 +42,14 @@ delete_jurusan:
     pattern:  /DeleteJurusan/{id}
     defaults: { _controller: SMAAdminBundle:Default:DeleteJurusan }
 
+data_mapel:
+    pattern:  /DataMatapelajaran/
+    defaults: { _controller: SMAAdminBundle:Default:DataMapel }
+
+delete_mapel:
+    pattern:  /DeleteMatapelajaran/{id}
+    defaults: { _controller: SMAAdminBundle:Default:DeleteMapel }
+
 data_berita:
     pattern:  /DataBerita/
     defaults: { _controller: SMAAdminBundle:Default:DataBerita }
